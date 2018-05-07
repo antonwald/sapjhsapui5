@@ -1,0 +1,84 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"_version": "1.2.0",
+		"id": "sap.training.anton",
+		"type": "application",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}"
+	},
+	"sap.ui": {
+		"_version": "1.3.0",
+		"fullWidth": true,
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": []
+	},
+	"sap.ui5": {
+		"config": {
+			"sapFiori2Adaptation": true
+		},
+		"rootView": "sap.training.anton.view.App",
+		"dependencies": {
+			"minUI5Version": "1.52",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.52"
+				},
+				"sap.m": {
+					"minVersion": "1.52"
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewPath": "sap.training.anton.view",
+				"controlId": "app",
+				"controlAggregation": "pages"
+			},
+			"targets": {
+				"main": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Main",
+					"title": "Main Page",
+					"viewId": "main"
+				},
+				"detail": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Detail",
+					"title": "Detail Page",
+					"viewId": "detail"
+				}
+			},
+			"routes": [{
+				"name": "main",
+				"pattern": "",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["main"]
+			}, {
+				"name": "detail",
+				"pattern": "/detail",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["detail"]
+			}]
+		}
+	}
+}
