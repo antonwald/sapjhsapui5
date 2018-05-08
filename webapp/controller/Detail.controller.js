@@ -5,30 +5,86 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("sap.training.anton.controller.Detail", {
-		
-		navigateBack : function(){
-			
+
+		navigateBack: function() {
+
 			var sPrevious = History.getInstance().getPreviousHash();
-			
-			if (sPrevious){
+
+			if (sPrevious) {
 				// browser back 
 				history.go(-1);
-			}else{
+			} else {
 				/*@type sap.ui.core.UIComponent */
 				//var oComponent = this.getOwnerComponent();
 				this.getRouter().navTo("main", {}, true);
 			}
-			
-		}
+
+		},
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf sap.training.anton.view.Detail
 		 */
-		//	onInit: function() {
-		//
-		//	},
+		onInit: function() {
+			this.getRouter().getRoute("detailWithParam").attachPatternMatched(this._onObjectMatched, this);
+		},
+
+		_onObjectMatched: function(oEvent) {
+
+			var param = oEvent.getParameter("arguments");
+
+			if (param && param.flight) {
+				var sPath = "/data/" + param.flight;
+				this.getView().bindElement(sPath);
+			}
+
+		},
+
+		onSave: function() {
+
+			var bValidated = true;
+
+			var aControls = this.getView().getControlsByFieldGroupId("fgFlight");
+			aControls.forEach(function(oControl) {
+				//do validation
+				var oControlBinding = oControl.getBinding("value");
+				// get the formatted value
+				var oExternalValue = oControlBinding.getExternalValue();
+				//oControl.setProperty("value", oExternalValue);
+				// get the actual, internal value
+				var oInternalValue = oControlBinding.getInternalValue();
+				// trigger the actual validation
+				try {
+					oControlBinding.getType().validateValue(oInternalValue);
+				} catch (oValidateException) {
+
+					bValidated = false;
+
+					var oMessageManager = sap.ui.getCore().getMessageManager();
+					var oMessageProcessor = new sap.ui.core.message.ControlMessageProcessor();
+					//oMessageManager.unregisterMessageProcessor(oMessageProcessor);
+					//oMessageManager.removeAllMessages()
+
+					oMessageManager.registerMessageProcessor(oMessageProcessor);
+					var oMessage = new sap.ui.core.message.Message({
+						message: oValidateException.message,
+						type: sap.ui.core.MessageType.Error,
+						target: oControl.getId() + "/value",
+						processor: oMessageProcessor
+					});
+					oMessageManager.addMessages(oMessage);
+
+					oControl.attachLiveChange(function() {
+						oMessageManager.removeMessages(oMessage);
+					});
+				}
+			});
+
+			if (bValidated) {
+				// do submit
+			}
+		}
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

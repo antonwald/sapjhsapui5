@@ -4,7 +4,7 @@
     xmlns:l="sap.ui.layout">
 	<Page title="Detail Page" showNavButton="true" navButtonPress="navigateBack">
 		<content>
-				<f:SimpleForm editable="true" layout="ResponsiveGridLayout" id="idForm" binding="{/data/0}" emptySpanL="5">
+				<f:SimpleForm editable="true" layout="ResponsiveGridLayout" id="idForm" emptySpanL="5">
 	    <f:content>
 	        <core:Title text="Flight Details" id="idFormTitle"/>
 	        <Label text="Flug" id="__label0"/>
@@ -14,12 +14,12 @@
 	        <Input value="{parts: [{path: 'price'},{path: 'currency'}],type: 'sap.ui.model.type.Currency',formatOptions: {showMeasure: true,
 					currencyCode: true}}" width="100%" id="idPriceInput"/>
 			<Label text="Maximum Seats"></Label>
-			<Input value="{path: 'seatsMax', type: 'sap.ui.model.type.Integer'}">
+			<Input fieldGroupIds="fgFlight" value="{path: 'seatsMax', type: 'sap.ui.model.type.Integer', constraints: {minimum: 500}}">
 				<layoutData>
 					<l:GridData span="L10 M10 S12"/>
 				</layoutData>
 			</Input>
-			<Button text="Save">
+			<Button text="Save" press="onSave">
 				<layoutData>
 					<l:GridData span="L5 M8 S12" indent="L2 M2"/>
 				</layoutData>

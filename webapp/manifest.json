@@ -22,6 +22,7 @@
 		"supportedThemes": []
 	},
 	"sap.ui5": {
+		"handleValidation": true,
 		"config": {
 			"sapFiori2Adaptation": true
 		},
