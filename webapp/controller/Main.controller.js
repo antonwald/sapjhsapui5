@@ -1,5 +1,5 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
+	"sap/training/anton/controller/BaseController",
 	"sap/m/MessageBox",
 	//	 "sap/training/anton/myLib/Formatter"
 	"../myLib/Formatter",
@@ -43,10 +43,10 @@ sap.ui.define([
 
 		navToDetail: function() {
 
-			var oComponent = this.getOwnerComponent();
-			var oRouter = oComponent.getRouter();
+			// var oComponent = this.getOwnerComponent();
+			// var oRouter = oComponent.getRouter();
 
-			oRouter.navTo("detail");
+			this.getRouter().navTo("detail");
 
 		}
 
