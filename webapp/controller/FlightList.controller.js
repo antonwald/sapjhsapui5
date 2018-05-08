@@ -1,12 +1,33 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
+	"sap/training/anton/controller/BaseController",
 	"sap/training/anton/myLib/Formatter"
 ], function(Controller, Formatter) {
 	"use strict";
 
 	return Controller.extend("sap.training.anton.controller.FlightList", {
       
-        formatter: Formatter
+        formatter: Formatter,
+        
+        onItemPressed: function(oEvent){
+        	
+         var oContext =	oEvent.getSource().getBindingContext();
+         var sPath = oContext.getPath();
+         
+         //var oForm = this.getView().byId("idForm");
+         //oForm.bindElement(sPath);
+         var index = sPath.split("/").pop();
+         this.getRouter().navTo("detailWithParam", {flight: index});        
+         
+        	
+        }
+        
+        // onTableItemPressed: function(oEvent){
+        // 	var oContext =	oEvent.getParameter("listItem").getBindingContext();
+        // 	var sPath = oContext.getPath();
+         
+        // 	var oForm = this.getView().byId("idForm");
+        // 	oForm.bindElement(sPath);
+        // }
 
 
 		/**

@@ -34,6 +34,9 @@
 				},
 				"sap.m": {
 					"minVersion": "1.52"
+				},
+				"sap.ui.layout": {
+					"minVersion": "1.52"
 				}
 			}
 		},
@@ -77,6 +80,12 @@
 			}, {
 				"name": "detail",
 				"pattern": "/detail",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["detail"]
+			}, {
+				"name": "detailWithParam",
+				"pattern": "/detail/{flight}",
 				"titleTarget": "",
 				"greedy": false,
 				"target": ["detail"]

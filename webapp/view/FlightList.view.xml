@@ -2,30 +2,20 @@
          xmlns:mvc="sap.ui.core.mvc" 
          xmlns="sap.m" 
          xmlns:html="http://www.w3.org/1999/xhtml" 
+         xmlns:f="sap.ui.layout.form"
+         xmlns:l="sap.ui.layout"
          controllerName="sap.training.anton.controller.FlightList">
-	<Table items="{path: '/data',
-	               sorter: [ {path: 'carrId', descending: true, group: true},
-	                         {path: 'connId'}
-	                       ],
-	               filters: [{path: 'carrId', operator: 'Contains', value1: 'L'}]
-	               }" 
-	       noDataText="Drop column list items here and columns in the area above" 
-	       id="flightTable"
-	       growing="true"
-	       growingThreshold="5"
-	       growingScrollToLoad="true">
+	<Table items="{path: '/data',                 sorter: [ {path: 'carrId', descending: true, group: true},                           {path: 'connId'}                         ],                 filters: [{path: 'carrId', operator: 'Contains', value1: 'L'}]                 }" noDataText="Drop column list items here and columns in the area above"
+	        id="flightTable" growing="true" growingThreshold="5" growingScrollToLoad="true"
+	        itemPress="onTableItemPressed">
 		<items>
-			<ColumnListItem>
+			<ColumnListItem type="Active" press="onItemPressed">
 				<cells>
 					<Text text="{path: 'carrId', formatter: '.formatter.carrName'}"/>
 					<Text text="{connId}"/>
-					<Text text="{parts: [{path: 'price'},{path: 'currency'}], 
-					             type: 'sap.ui.model.type.Currency',
-					             formatOptions: {
-					                 showMeasure: true,
-					                 currencyCode: false
-					             }}"/>
-					<Text text="{= ${seatsMax} - ${seatsOcc} }"></Text>
+					<Text text="{parts: [{path: 'price'},{path: 'currency'}],type: 'sap.ui.model.type.Currency',formatOptions: {showMeasure: true,
+					currencyCode: false}}"/>
+					<Text text="{= ${seatsMax} - ${seatsOcc} }"/>
 				</cells>
 			</ColumnListItem>
 		</items>
@@ -52,4 +42,5 @@
 			</Column>
 		</columns>
 	</Table>
+
 </mvc:View>
