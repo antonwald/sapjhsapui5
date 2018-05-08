@@ -12,22 +12,30 @@ sap.ui.define([
 		showMessage: function() {
 			//	jQuery.sap.require("sap.m.MessageBox");
 
+			/*@type sap.ui.model.resource.ResourceModel */
+			var i18nModel = this.getOwnerComponent().getModel("i18n");
+			var oBundle = i18nModel.getResourceBundle();
+			
 			sap.ui.require(["sap/m/MessageBox", "sap/training/anton/myLib/Formatter"], function(MessageBox, Formatter) {
-				MessageBox.show(Formatter.capitilizeFirstLetter("hello, Jungheinrich AG"), {
-					title: Formatter.capitilizeFirstLetter("success")
+             
+				var sDialogText = oBundle.getText("dialogText");
+				var sDialogStatus = oBundle.getText("dialogStatus");
+
+				MessageBox.show(Formatter.capitilizeFirstLetter(sDialogText), {
+					title: Formatter.capitilizeFirstLetter(sDialogStatus)
 				});
 			});
 			MessageToast.show("Message before Message Box");
 
 		},
-		
-		navToDetail: function(){
-			
+
+		navToDetail: function() {
+
 			var oComponent = this.getOwnerComponent();
 			var oRouter = oComponent.getRouter();
-			
+
 			oRouter.navTo("detail");
-			
+
 		}
 
 		/**

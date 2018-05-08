@@ -81,6 +81,15 @@
 				"greedy": false,
 				"target": ["detail"]
 			}]
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {},
+				"uri": "i18n/i18n.properties",
+				"preload": false,
+				"async": true
+			}
 		}
 	}
 }

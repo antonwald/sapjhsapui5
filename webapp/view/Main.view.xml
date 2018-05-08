@@ -1,9 +1,9 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.training.anton.controller.Main"
 	xmlns:html="http://www.w3.org/1999/xhtml">
-	<Page id="page1" title="Main Page">
+	<Page id="page1" title="{i18n>main.page.title}">
 		<content>
-			<Button text="Show Message" type="Emphasized" press="showMessage"/>
-			<Button text="Nav to Detail" press="navToDetail"></Button>
+			<Button text="{i18n>btnShowMessage}" type="Emphasized" press="showMessage"/>
+			<Button text="{i18n>btnNav}" press="navToDetail"></Button>
 		</content>
 	</Page>
 </mvc:View>
