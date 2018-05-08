@@ -3,7 +3,7 @@
 		<items>
 			<ColumnListItem>
 				<cells>
-					<Text text="{carrId}"/>
+					<Text text="{path: 'carrId', formatter: '.carrName'}"/>
 					<Text text="{connId}"/>
 					<Text text="{price}"/>
 				</cells>
