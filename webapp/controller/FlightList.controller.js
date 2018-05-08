@@ -1,20 +1,13 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function(Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/training/anton/myLib/Formatter"
+], function(Controller, Formatter) {
 	"use strict";
 
 	return Controller.extend("sap.training.anton.controller.FlightList", {
+      
+        formatter: Formatter
 
-		carrName: function(sCarrId){
-			
-			switch(sCarrId) {
-				case "LH":
-					return "Lufthansa";
-				default:
-				    return sCarrId;
-			}
-			
-		}
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.

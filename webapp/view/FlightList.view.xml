@@ -3,9 +3,15 @@
 		<items>
 			<ColumnListItem>
 				<cells>
-					<Text text="{path: 'carrId', formatter: '.carrName'}"/>
+					<Text text="{path: 'carrId', formatter: '.formatter.carrName'}"/>
 					<Text text="{connId}"/>
-					<Text text="{price}"/>
+					<Text text="{parts: [{path: 'price'},{path: 'currency'}], 
+					             type: 'sap.ui.model.type.Currency',
+					             formatOptions: {
+					                 showMeasure: true,
+					                 currencyCode: false
+					             }}"/>
+					<Text text="{= ${seatsMax} - ${seatsOcc} }"></Text>
 				</cells>
 			</ColumnListItem>
 		</items>
@@ -22,7 +28,12 @@
 			</Column>
 			<Column id="priceColumn">
 				<header>
-					<Label text="Header 3" id="priceColumnLabel"/>
+					<Label text="Price" id="priceColumnLabel"/>
+				</header>
+			</Column>
+			<Column id="availColumn">
+				<header>
+					<Label text="Availability" id="availColumnLabel"/>
 				</header>
 			</Column>
 		</columns>
