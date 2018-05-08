@@ -1,20 +1,25 @@
 sap.ui.define([
-	"sap/training/anton/controller/BaseController"
-], function(Controller) {
+	"sap/training/anton/controller/BaseController",
+	"sap/ui/Device"
+], function(Controller, Device) {
 	"use strict";
 
 	return Controller.extend("sap.training.anton.controller.App", {
-
-
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf sap.training.anton.view.App
 		 */
-		//	onInit: function() {
-		//
-		//	},
+			onInit: function() {
+				
+				if(Device.support.touch){
+					this.getView().addStyleClass("sapUiSizeCozy");
+				}else{
+			    	this.getView().addStyleClass("sapUiSizeCompact");
+				}
+		
+			}
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
