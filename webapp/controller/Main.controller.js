@@ -32,6 +32,8 @@ sap.ui.define([
 			
 			oControl.setText("clicked");
 			
+			var oButton = this.getView().byId("btnNav");
+			oButton.setType("Reject");
 			
 
 		},
