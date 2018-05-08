@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/training/anton/controller/BaseController",
-	"sap/ui/Device"
-], function(Controller, Device) {
+	"sap/ui/Device",
+	"sap/ui/model/json/JSONModel"
+], function(Controller, Device, JSONModel) {
 	"use strict";
 
 	return Controller.extend("sap.training.anton.controller.App", {
@@ -18,6 +19,9 @@ sap.ui.define([
 				}else{
 			    	this.getView().addStyleClass("sapUiSizeCompact");
 				}
+				
+				var oModel = new JSONModel(Device);
+				this.getView().setModel(oModel, "device");
 		
 			}
 

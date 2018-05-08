@@ -10,7 +10,10 @@
 	               filters: [{path: 'carrId', operator: 'Contains', value1: 'L'}]
 	               }" 
 	       noDataText="Drop column list items here and columns in the area above" 
-	       id="flightTable">
+	       id="flightTable"
+	       growing="true"
+	       growingThreshold="5"
+	       growingScrollToLoad="true">
 		<items>
 			<ColumnListItem>
 				<cells>
