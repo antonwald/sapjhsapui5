@@ -9,7 +9,7 @@ sap.ui.define([
 
 	return Controller.extend("sap.training.anton.controller.Main", {
 
-		showMessage: function() {
+		showMessage: function(oEvent) {
 			//	jQuery.sap.require("sap.m.MessageBox");
 
 			/*@type sap.ui.model.resource.ResourceModel */
@@ -25,7 +25,14 @@ sap.ui.define([
 					title: Formatter.capitilizeFirstLetter(sDialogStatus)
 				});
 			});
-			MessageToast.show("Message before Message Box");
+			
+			var oControl = oEvent.getSource();
+			var sText = oBundle.getText("messageToastText", [oControl.getId(), oControl.getText()]);
+			MessageToast.show(sText);
+			
+			oControl.setText("clicked");
+			
+			
 
 		},
 
