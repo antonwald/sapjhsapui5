@@ -14,10 +14,12 @@ sap.ui.jsview("sap.training.anton.view.ButtonJS", {
 	 */
 	createContent: function(oController) {
 		
-		var oButton = new sap.m.Button({
+		var oButton = new sap.m.Button(this.createId("idButton"), {
 			text: "{i18n>jsButtonText}"
 		});
-		oButton.attachPress(oController.sayHello);
+		// bind - overwrite context
+		//oButton.attachPress(oController.sayHello.bind(oController));
+		oButton.attachPress(oController.sayHello, oController);
 
 		return oButton;
 	}

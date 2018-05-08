@@ -7,6 +7,9 @@ sap.ui.define([
 		
 		sayHello: function(oEvent){
 			
+			var oButton = this.getView().byId("idButton");
+			oButton.setType("Reject");
+			
 		}
 
 		/**

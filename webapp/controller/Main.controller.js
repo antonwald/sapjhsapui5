@@ -35,6 +35,9 @@ sap.ui.define([
 			var oButton = this.getView().byId("btnNav");
 			oButton.setType("Reject");
 			
+			var oJSButton = this.getView().byId("viewJS").byId("idButton");
+			oJSButton.setText("changed from Main view");
+			
 
 		},
 

@@ -4,7 +4,7 @@
 		<content>
 			<Button id="btnShowMessage" text="{i18n>btnShowMessage}" type="Emphasized" press="showMessage"/>
 			<Button id="btnNav" text="{i18n>btnNav}" press="navToDetail"></Button>
-			<mvc:JSView viewName="sap.training.anton.view.ButtonJS"></mvc:JSView>
+			<mvc:JSView id="viewJS" viewName="sap.training.anton.view.ButtonJS"></mvc:JSView>
 		</content>
 	</Page>
 </mvc:View>
