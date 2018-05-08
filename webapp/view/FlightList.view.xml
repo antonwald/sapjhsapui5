@@ -1,0 +1,35 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="sap.training.anton.controller.FlightList">
+	<Table noDataText="Drop column list items here and columns in the area above" id="flightTable">
+		<items>
+			<ColumnListItem id="__item0">
+				<cells>
+					<Text text="Row 1 Cell 1" id="__text3"/>
+					<Text text="Row 1 Cell 2" id="__text4"/>
+					<Text text="Row 1 Cell 3" id="__text5"/></cells>
+			</ColumnListItem>
+			<ColumnListItem id="__item1">
+				<cells>
+					<Text text="Row 2 Cell 1" id="__text6"/>
+					<Text text="Row 2 Cell 2" id="__text7"/>
+					<Text text="Row 2 Cell 3" id="__text8"/></cells>
+			</ColumnListItem>
+		</items>
+		<columns>
+			<Column id="airlineColumn">
+				<header>
+					<Label text="{i18n>airline}" id="airlineColumnLabel"/>
+				</header>
+			</Column>
+			<Column id="flightColumn">
+				<header>
+					<Label text="Flight Number" id="flightColumnLable"/>
+				</header>
+			</Column>
+			<Column id="priceColumn">
+				<header>
+					<Label text="Header 3" id="priceColumnLabel"/>
+				</header>
+			</Column>
+		</columns>
+	</Table>
+</mvc:View>
