@@ -1,5 +1,11 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="sap.training.anton.controller.FlightList">
-	<Table items="{/data}" noDataText="Drop column list items here and columns in the area above" id="flightTable">
+	<Table items="{path: '/data',
+	               sorter: [ {path: 'carrId', descending: true, group: true},
+	                         {path: 'connId'}
+	                       ]
+	               }" 
+	       noDataText="Drop column list items here and columns in the area above" 
+	       id="flightTable">
 		<items>
 			<ColumnListItem>
 				<cells>
