@@ -55,7 +55,8 @@
 					"clearAggregation": true,
 					"viewName": "Main",
 					"title": "Main Page",
-					"viewId": "main"
+					"viewId": "main",
+					"viewLevel": 1
 				},
 				"detail": {
 					"viewType": "XML",
@@ -63,7 +64,8 @@
 					"clearAggregation": true,
 					"viewName": "Detail",
 					"title": "Detail Page",
-					"viewId": "detail"
+					"viewId": "detail",
+					"viewLevel": 2
 				}
 			},
 			"routes": [{

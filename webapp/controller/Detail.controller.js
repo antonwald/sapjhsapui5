@@ -1,9 +1,25 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function(Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/core/routing/History"
+], function(Controller, History) {
 	"use strict";
 
 	return Controller.extend("sap.training.anton.controller.Detail", {
+		
+		navigateBack : function(){
+			
+			var sPrevious = History.getInstance().getPreviousHash();
+			
+			if (sPrevious){
+				// browser back 
+				history.go(-1);
+			}else{
+				/*@type sap.ui.core.UIComponent */
+				var oComponent = this.getOwnerComponent();
+				oComponent.getRouter().navTo("main", {}, true);
+			}
+			
+		}
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
