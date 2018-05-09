@@ -5,17 +5,20 @@
          xmlns:f="sap.ui.layout.form"
          xmlns:l="sap.ui.layout"
          controllerName="sap.training.anton.controller.FlightList">
-	<Table items="{path: '/data',                 sorter: [ {path: 'carrId', descending: true, group: true},                           {path: 'connId'}                         ],                 filters: [{path: 'carrId', operator: 'Contains', value1: 'L'}]                 }" noDataText="Drop column list items here and columns in the area above"
+	<Table items="{path: '/ZBC_C_Flight_TP',  
+	               sorter: [ {path: 'Carrid', descending: true, group: true}, {path: 'Connid'}],
+	               filters: [{path: 'Carrid', operator: 'Contains', value1: 'L'}]}" 
+	               noDataText="Drop column list items here and columns in the area above"
 	        id="flightTable" growing="true" growingThreshold="5" growingScrollToLoad="true"
 	        itemPress="onTableItemPressed">
 		<items>
 			<ColumnListItem type="Navigation" press="onItemPressed">
 				<cells>
-					<Text text="{path: 'carrId', formatter: '.formatter.carrName'}"/>
-					<Text text="{connId}"/>
-					<Text text="{parts: [{path: 'price'},{path: 'currency'}],type: 'sap.ui.model.type.Currency',formatOptions: {showMeasure: true,
-					currencyCode: false}}"/>
-					<Text text="{= ${seatsMax} - ${seatsOcc} }"/>
+					<Text text="{path: 'Carrid', formatter: '.formatter.carrName'}"/>
+					<Text text="{Connid}"/>
+					<!--<Text text="{parts: [{path: 'price'},{path: 'currency'}],type: 'sap.ui.model.type.Currency',formatOptions: {showMeasure: true,-->
+					<!--currencyCode: false}}"/>-->
+					<Text text="{= ${Seatsmax} - ${Seatsocc} }"/>
 				</cells>
 			</ColumnListItem>
 		</items>
@@ -30,11 +33,11 @@
 					<Label text="Flight Number" id="flightColumnLable"/>
 				</header>
 			</Column>
-			<Column id="priceColumn" minScreenWidth="Tablet" demandPopin="true">
-				<header>
-					<Label text="Price" id="priceColumnLabel"/>
-				</header>
-			</Column>
+			<!--<Column id="priceColumn" minScreenWidth="Tablet" demandPopin="true">-->
+			<!--	<header>-->
+			<!--		<Label text="Price" id="priceColumnLabel"/>-->
+			<!--	</header>-->
+			<!--</Column>-->
 			<Column id="availColumn" minScreenWidth="Desktop" demandPopin="true">
 				<header>
 					<Label text="Availability" id="availColumnLabel"/>

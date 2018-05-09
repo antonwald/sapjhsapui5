@@ -24,7 +24,7 @@ sap.ui.define(["jquery.sap.global",
 				var sURL = sNamespacePath + "/model/data.json";
 				oModel.loadData(sURL);
 				// connect to UI
-				this.setModel(oModel);
+			//	this.setModel(oModel);
 				
 				
 			}

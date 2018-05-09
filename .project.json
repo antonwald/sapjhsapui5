@@ -4,6 +4,11 @@
       "templateId": "ui5template.basicSAPUI5ApplicationComponent",
       "templateVersion": "1.4.0",
       "dateTimeStamp": "Tue, 08 May 2018 09:47:40 GMT"
+    },
+    {
+      "templateId": "servicecatalog.connectivityComponent",
+      "templateVersion": "0.0.0",
+      "dateTimeStamp": "Wed, 09 May 2018 09:39:44 GMT"
     }
   ],
   "translation": {
@@ -12,5 +17,12 @@
     "defaultLanguage": "en",
     "defaultI18NPropertyFile": "",
     "resourceModelName": ""
+  },
+  "mockpreview": {
+    "mockUri": "/sap/opu/odata/sap/ZTRAVEL_SRV",
+    "metadataFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false,
+    "mockRequestsFilePath": ""
   }
 }
