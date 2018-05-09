@@ -9,6 +9,11 @@ sap.ui.define([
 
 	return Controller.extend("sap.training.anton.controller.Detail", {
 		
+		onEdit: function(){
+			//this.getView().getModel("view").setProperty("/editMode", true);
+			this._oViewModel.setProperty("/editMode", true);
+		},
+		
 		navigateBack: function() {
 
 			var sPrevious = History.getInstance().getPreviousHash();
@@ -54,15 +59,17 @@ sap.ui.define([
 			var oViewState = {
 				editMode: false
 			};
-			var oViewModel = new JSONModel();
-			oViewModel.setData(oViewState);
+			this._oViewModel = new JSONModel();
+			this._oViewModel.setData(oViewState);
 			
-			this.getView().setModel(oViewModel, "view");
+			this.getView().setModel(this._oViewModel, "view");
 			
 		},
 
 		_onObjectMatched: function(oEvent) {
 
+            this._oViewModel.setProperty("/editMode", false);
+            
 			var param = oEvent.getParameter("arguments");
 
 			if (param && param.flight) {
@@ -111,9 +118,12 @@ sap.ui.define([
 					});
 				}
 			});
-
-			if (bValidated) {
+			
+			var oMessageManager = sap.ui.getCore().getMessageManager();
+			var numberOfMessages = oMessageManager.getMessageModel().getData().length;
+			if (bValidated && numberOfMessages === 0) {
 				// do submit
+				this._oViewModel.setProperty("/editMode", false);
 			}
 		}
 
