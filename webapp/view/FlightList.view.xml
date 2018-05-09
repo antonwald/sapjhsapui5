@@ -9,7 +9,7 @@
 	        id="flightTable" growing="true" growingThreshold="5" growingScrollToLoad="true"
 	        itemPress="onTableItemPressed">
 		<items>
-			<ColumnListItem type="Active" press="onItemPressed">
+			<ColumnListItem type="Navigation" press="onItemPressed">
 				<cells>
 					<Text text="{path: 'carrId', formatter: '.formatter.carrName'}"/>
 					<Text text="{connId}"/>

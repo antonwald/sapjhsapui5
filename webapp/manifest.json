@@ -38,6 +38,9 @@
 				},
 				"sap.ui.layout": {
 					"minVersion": "1.52"
+				},
+				"sap.f": {
+					"minVersion": "1.52"
 				}
 			}
 		},
