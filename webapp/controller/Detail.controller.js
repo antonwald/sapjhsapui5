@@ -1,7 +1,9 @@
 sap.ui.define([
 	"sap/training/anton/controller/BaseController",
-	"sap/ui/core/routing/History"
-], function(Controller, History) {
+	"sap/ui/core/routing/History",
+	"sap/m/MessagePopover",
+	"sap/m/MessagePopoverItem"
+], function(Controller, History, MessagePopover, MessagePopoverItem) {
 	"use strict";
 
 	return Controller.extend("sap.training.anton.controller.Detail", {
@@ -19,6 +21,25 @@ sap.ui.define([
 				this.getRouter().navTo("main", {}, true);
 			}
 
+		},
+
+		onMessagesButtonPress: function(oEvent) {
+			var oMessagesButton = oEvent.getSource();
+
+			if (!this._messagePopover) {
+				this._messagePopover = new MessagePopover({
+					items: {
+						path: "message>/",
+						template: new MessagePopoverItem({
+							description: "{message>description}",
+							type: "{message>type}",
+							title: "{message>message}"
+						})
+					}
+				});
+				oMessagesButton.addDependent(this._messagePopover);
+			}
+			this._messagePopover.toggle(oMessagesButton);
 		},
 
 		/**
