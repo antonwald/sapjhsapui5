@@ -3,14 +3,14 @@
 					<f:content>
 						<core:Title text="Flight Details" id="idFormTitle"/>
 						<Label text="Flug" id="__label0"/>
-						<Text text="{path: 'carrId', formatter: '.formatter.carrName'}" width="100%" id="idCarrIdInput"/>
-						<Text text="{connId}" width="100%" id="idConnIdInput"/>
+						<Text text="{path: 'Carrid', formatter: '.formatter.carrName'}" width="100%" id="idCarrIdInput"/>
+						<Text text="{Connid}" width="100%" id="idConnIdInput"/>
 						<Label text="Price" id="__label1"/>
 						<Text
 							Text="{parts: [{path: 'price'},{path: 'currency'}],type: 'sap.ui.model.type.Currency',formatOptions: {showMeasure: true, currencyCode: true}}"
 							width="100%" id="idPriceInput"/>
 						<Label text="Maximum Seats"></Label>
-						<Text text="{path: 'seatsMax', type: 'sap.ui.model.type.Integer', constraints: {minimum: 500}}">
+						<Text text="{path: 'Seatsmax', type: 'sap.ui.model.type.Integer', constraints: {minimum: 500}}">
 							<layoutData>
 								<l:GridData span="L10 M10 S12"/>
 							</layoutData>

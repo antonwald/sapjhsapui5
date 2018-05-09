@@ -73,7 +73,8 @@ sap.ui.define([
 			var param = oEvent.getParameter("arguments");
 
 			if (param && param.flight) {
-				var sPath = "/data/" + param.flight;
+				//var sPath = "/data/" + param.flight;
+				var sPath = "/" + param.flight;
 				this.getView().bindElement(sPath);
 			}
 

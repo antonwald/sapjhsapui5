@@ -18,8 +18,8 @@
 					<items>
 						<Panel backgroundDesign="Transparent">
 							<content>
-								<ObjectAttribute title="Airline" text="{carrId}"/>
-								<ObjectAttribute title="Flight Number" text="{connId}"/>
+								<ObjectAttribute title="Airline" text="{Carrid}"/>
+								<ObjectAttribute title="Flight Number" text="{Connid}"/>
 							</content>
 						</Panel>
 					</items>
