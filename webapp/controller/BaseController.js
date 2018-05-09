@@ -1,9 +1,12 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function(Controller) {
+	"sap/ui/core/mvc/Controller",
+	"../myLib/Formatter"
+], function(Controller, Formatter) {
 	"use strict";
 
 	return Controller.extend("sap.training.anton.controller.BaseController", {
+		
+		formatter: Formatter,
 
         getRouter: function(){
         	return this.getOwnerComponent().getRouter();

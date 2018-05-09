@@ -2,12 +2,13 @@ sap.ui.define([
 	"sap/training/anton/controller/BaseController",
 	"sap/ui/core/routing/History",
 	"sap/m/MessagePopover",
-	"sap/m/MessagePopoverItem"
-], function(Controller, History, MessagePopover, MessagePopoverItem) {
+	"sap/m/MessagePopoverItem",
+	"sap/ui/model/json/JSONModel"
+], function(Controller, History, MessagePopover, MessagePopoverItem, JSONModel) {
 	"use strict";
 
 	return Controller.extend("sap.training.anton.controller.Detail", {
-
+		
 		navigateBack: function() {
 
 			var sPrevious = History.getInstance().getPreviousHash();
@@ -49,6 +50,15 @@ sap.ui.define([
 		 */
 		onInit: function() {
 			this.getRouter().getRoute("detailWithParam").attachPatternMatched(this._onObjectMatched, this);
+			
+			var oViewState = {
+				editMode: false
+			};
+			var oViewModel = new JSONModel();
+			oViewModel.setData(oViewState);
+			
+			this.getView().setModel(oViewModel, "view");
+			
 		},
 
 		_onObjectMatched: function(oEvent) {

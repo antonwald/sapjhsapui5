@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" >
+				<f:SimpleForm visible="{= !${view>/editMode}}" editable="false" layout="ResponsiveGridLayout" id="idForm" emptySpanL="5">
+					<f:content>
+						<core:Title text="Flight Details" id="idFormTitle"/>
+						<Label text="Flug" id="__label0"/>
+						<Text text="{path: 'carrId', formatter: '.formatter.carrName'}" width="100%" id="idCarrIdInput"/>
+						<Text text="{connId}" width="100%" id="idConnIdInput"/>
+						<Label text="Price" id="__label1"/>
+						<Text
+							Text="{parts: [{path: 'price'},{path: 'currency'}],type: 'sap.ui.model.type.Currency',formatOptions: {showMeasure: true, currencyCode: true}}"
+							width="100%" id="idPriceInput"/>
+						<Label text="Maximum Seats"></Label>
+						<Text fieldGroupIds="fgFlight" text="{path: 'seatsMax', type: 'sap.ui.model.type.Integer', constraints: {minimum: 500}}">
+							<layoutData>
+								<l:GridData span="L10 M10 S12"/>
+							</layoutData>
+						</Text>
+						<!--<Button text="Save" press="onSave">-->
+					</f:content>
+				</f:SimpleForm>
+</core:FragmentDefinition>

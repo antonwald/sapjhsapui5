@@ -1,8 +1,9 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.training.anton.controller.Detail"
 	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:semantic="sap.f.semantic">
 	<Page title="Detail Page" navButtonPress="navigateBack" showNavButton="true">
-		<semantic:SemanticPage id="mySemanticPage" headerPinnable="true" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false"
-			showFooter="true">
+		<semantic:SemanticPage id="mySemanticPage" 
+		    headerPinnable="true" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false"
+			showFooter="{view>/editMode}">
 			<!-- Title Heading-->
 			<semantic:titleHeading>
 				<Title text="Title Heading"/>
@@ -26,32 +27,13 @@
 			</semantic:headerContent>
 			<!-- Content -->
 			<semantic:content>
-				<f:SimpleForm editable="true" layout="ResponsiveGridLayout" id="idForm" emptySpanL="5">
-					<f:content>
-						<core:Title text="Flight Details" id="idFormTitle"/>
-						<Label text="Flug" id="__label0"/>
-						<Text text="{path: 'carrId', formatter: '.formatter.carrName'}" width="100%" id="idCarrIdInput"/>
-						<Text text="{connId}" width="100%" id="idConnIdInput"/>
-						<Label text="Price" id="__label1"/>
-						<Input
-							value="{parts: [{path: 'price'},{path: 'currency'}],type: 'sap.ui.model.type.Currency',formatOptions: {showMeasure: true, currencyCode: true}}"
-							width="100%" id="idPriceInput"/>
-						<Label text="Maximum Seats"></Label>
-						<Input fieldGroupIds="fgFlight" value="{path: 'seatsMax', type: 'sap.ui.model.type.Integer', constraints: {minimum: 500}}">
-							<layoutData>
-								<l:GridData span="L10 M10 S12"/>
-							</layoutData>
-						</Input>
-						<Button text="Save" press="onSave">
-							<layoutData>
-								<l:GridData span="L5 M8 S12" indent="L2 M2"/>
-							</layoutData>
-						</Button>
-					</f:content>
-				</f:SimpleForm>
+				<l:VerticalLayout width="100%">
+                  <core:Fragment id="idEditFragment" fragmentName="sap.training.anton.view.FormEdit" type="XML" />
+                  <core:Fragment id="idDisplayFragment" fragmentName="sap.training.anton.view.FormDisplay" type="XML" />
+                </l:VerticalLayout>
 			</semantic:content>
 			<semantic:titleMainAction>
-				<semantic:TitleMainAction id="editAction" text="Edit" press="onEdit"/>
+				<semantic:TitleMainAction id="editAction" text="Edit" press="onEdit" visible="{= !${view>/editMode}}"/>
 			</semantic:titleMainAction>
 
 			<!-- Semantic Footer Buttons -->
