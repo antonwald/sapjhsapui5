@@ -24,5 +24,9 @@
     "loadJSONFiles": false,
     "loadCustomRequests": false,
     "mockRequestsFilePath": ""
+  },
+  "deploy": {
+    "destination": "FSD_100",
+    "name": "ztrain00"
   }
 }

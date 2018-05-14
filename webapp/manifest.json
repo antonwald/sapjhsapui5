@@ -89,25 +89,35 @@
 					"viewLevel": 2
 				}
 			},
-			"routes": [{
-				"name": "main",
-				"pattern": "",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["main"]
-			}, {
-				"name": "detail",
-				"pattern": "/detail",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["detail"]
-			}, {
-				"name": "detailWithParam",
-				"pattern": "/detail/{flight}",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["detail"]
-			}]
+			"routes": [
+				{
+					"name": "main",
+					"pattern": "",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"main"
+					]
+				},
+				{
+					"name": "detail",
+					"pattern": "/detail",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"detail"
+					]
+				},
+				{
+					"name": "detailWithParam",
+					"pattern": "/detail/{flight}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"detail"
+					]
+				}
+			]
 		},
 		"models": {
 			"i18n": {
@@ -121,7 +131,7 @@
 				"type": "sap.ui.model.odata.v2.ODataModel",
 				"settings": {
 					"defaultOperationMode": "Server",
-					"defaultBindingMode": "OneTime",
+					"defaultBindingMode": "TwoWay",
 					"defaultCountMode": "Request",
 					"useBatch": true
 				},
@@ -129,5 +139,9 @@
 				"preload": true
 			}
 		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/ztrain00/webapp",
+		"_version": "1.1.0"
 	}
 }

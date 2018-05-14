@@ -124,6 +124,12 @@ sap.ui.define([
 			var numberOfMessages = oMessageManager.getMessageModel().getData().length;
 			if (bValidated && numberOfMessages === 0) {
 				// do submit
+				
+				/*@type sap.ui.model.odata.v2.ODataModel */
+				var oModel = this.getOwnerComponent().getModel();
+				oModel.setRefreshAfterChange(false);
+				oModel.submitChanges();
+				
 				this._oViewModel.setProperty("/editMode", false);
 			}
 		}
