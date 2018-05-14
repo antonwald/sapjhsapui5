@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<title>JavaScript OO</title>
+	<script type="text/javascript">
+          
+       // Object    
+       var employee = {
+       	name: "Anton",
+       	age: 42
+       };
+       employee.sayHello = function(){
+       	  console.log("Hallo " + this.name);
+       }
+       
+       // dot notation
+       console.log(employee.name);
+       employee.sayHello();
+       
+       // Map Notation
+       console.log(employee["name"]);
+       employee["sayHello"]();
+       
+       // Constructor Function
+       function Employee(sName){
+       	// var this = {
+        //   __proto__ = Employee.prototype
+       	//};
+       	   this.name = sName || "no name";
+       	// return this;
+       };
+       // Employee.prototype = { constructor: Employee}
+       
+       Employee.prototype.sayHello = function(){
+       	      console.log("Hallo " + this.name);
+       };
+       
+       Employee.prototype.sayHello2 = function(){
+       	console.log("Hello again " + this.name);
+       }
+       
+       var employee1 = new Employee("Anton");
+       var employee2 = new Employee("Katharina");
+       var employee3 = new Employee();
+       employee1.sayHello();
+       employee2.sayHello();
+       employee3.sayHello();
+       
+       employee2.department = "Sales";
+       
+       // Vererbung
+       function SalesEmployee(sName){
+       	 // Option 1
+       	 //this.base = Employee;
+       	 //this.base(sName);
+       	 
+       	 // Option 2
+       	 Employee.call(this, sName);
+       }
+       SalesEmployee.prototype = new Employee;
+       SalesEmployee.prototype.department = "Sales";
+       
+       employee5 = new SalesEmployee("Dominik");
+       
+	</script>
+</head>
+<body>
+</body>
+</html>

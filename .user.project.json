@@ -1,6 +1,42 @@
 {
   "run": [
     {
+      "filePath": "/webapp/JavaScriptPromise.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": null,
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [],
+      "hashParameter": "",
+      "backendSystem": [],
+      "_metadata": {
+        "runnerId": "webapprunner",
+        "id": 6289897,
+        "displayName": "Run JavaScriptPromise.html",
+        "lastRunTimeStamp": 1526298289516
+      }
+    },
+    {
+      "filePath": "/webapp/JavaScriptOOO.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": null,
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [],
+      "hashParameter": "",
+      "backendSystem": [],
+      "_metadata": {
+        "runnerId": "webapprunner",
+        "id": 3996699,
+        "displayName": "Run JavaScriptOOO.html",
+        "lastRunTimeStamp": 1526298117588
+      }
+    },
+    {
       "filePath": "/webapp/index.html",
       "previewMode": 1,
       "dataMode": 1,

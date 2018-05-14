@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<title>JavaScript Promise</title>
+	<script type="text/javascript">
+       
+       // Promise
+       function httpGet(url) {
+			return new Promise(function(resolve, reject) {
+				var xhr = new XMLHttpRequest();
+				xhr.open('GET', url, true);
+				
+				xhr.onload = function() {
+				      if (this.status == 200) {
+				        resolve(this.response);
+				      } else {
+				        var error = new Error(this.statusText);
+				        error.code = this.status;
+				        reject(error);
+				      }
+				    };
+				
+				xhr.onerror = function() {
+				      reject(new Error("Network Error"));
+				    };
+				
+				xhr.send();
+		   });
+     }
+    // Call Promise 
+   // http://services.odata.org/V2/OData/OData.svc/Products(2)?$format=json"
+   // OK
+    httpGet("/northwind/V2/OData/OData.svc/Products(2)?$format=json").then(onFulfilled, onRejected);
+    // Error: incorrect URL
+    httpGet("/northwind/V2/OData/OData.svc/XXXXXXXXX(2)?$format=json").then(onFulfilled, onRejected);
+    
+    function onFulfilled(response){
+    	console.log(JSON.stringify(response));
+    }
+    function onRejected(error){
+    	console.log(error);
+    }
+
+
+	</script>
+</head>
+<body>
+</body>
+</html>
